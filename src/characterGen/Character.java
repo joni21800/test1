@@ -1,12 +1,15 @@
 package characterGen;
 
 public class Character {
+    
     String name;
 
     public static void main(String[] args) {
 
         Character tim = new Character();
-        tim.name = NameGenerator.createName();
+        NameGenerator nameMaker = new NameGenerator();
+//        nameMaker.getNames().add("Legolas");
+        tim.name = nameMaker.createName();
         tim.print();
     }
 
