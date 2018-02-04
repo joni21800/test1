@@ -2,6 +2,6 @@
 ### Java template
 # Compiled class file
 *.class
-
+.idea/misc.xml
 
 
