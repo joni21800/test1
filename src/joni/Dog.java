@@ -2,7 +2,7 @@ package joni;
 
 public class Dog {
 
-    static String bellen = "wuff";
+    static String bellen = "wau!Wau!WAAAU!";
 
     String name;
     String laut;
