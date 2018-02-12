@@ -29,7 +29,7 @@ public class Main {
 
         System.out.println("Wie heisst der Hund?");
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
+        String name = sc.nextLine()  ;
         if(name.trim().equals("")){
             System.out.println("Hund braucht Namen!!!");
         }
