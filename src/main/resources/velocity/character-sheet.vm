@@ -29,13 +29,15 @@
     <table>
     ## Schleife über alle Schlüssel (keys) in $npc.attributeMap:)
         #foreach( $attribute in $specialAttributeNames)
-        ## Für jedes Attribut: füge eine table-row (Tabellen-Zeile) = <tr> hinzu
-            <tr>
-            ## in der Zeile: eine Tabellenzelle (table-data-cell = <td> )mit dem Namen des Attributs
-                <td>$attribute</td>
-            ## neben der Namens-Zelle eine weitere mit dem Wert des Attributs:
-                <td style="text-align:right;">$npc.specialAttributes.get($attribute)</td>
-            </tr>
+            #if ($npc.specialAttributes.containsKey($attribute))
+            ## Für jedes Attribut: füge eine table-row (Tabellen-Zeile) = <tr> hinzu
+                <tr>
+                ## in der Zeile: eine Tabellenzelle (table-data-cell = <td> )mit dem Namen des Attributs
+                    <td>$attribute</td>
+                ## neben der Namens-Zelle eine weitere mit dem Wert des Attributs:
+                    <td style="text-align:right;">$npc.specialAttributes.get($attribute)</td>
+                </tr>
+            #end
         #end
     </table>
     #end
