@@ -68,14 +68,6 @@ public class CharacterSheetGenerator {
     public static void main(String[] args) {
         CharacterSheetGenerator csg = new CharacterSheetGenerator();
         
-        /*List<Attribute> humanAttributes = new ArrayList<>();
-
-        for(AttributeName attribute : AttributeName.values()){
-            humanAttributes.add(new Attribute(attribute, new Würfel(3,6,0)));
-        }
-*/
-        //Race human = new Race("Human", humanAttributes, new ArrayList<>());
-        
         Race race = null;
         String raceName = "Zwerg";
         
@@ -85,6 +77,16 @@ public class CharacterSheetGenerator {
         
         switch (raceName){
             case "Zwerg": race=new Dwarf();break;
+            
+            // TODO: Elf-Rasse hinzufügen
+            // TODO: natural abilities erstellen:
+            /*
+             List<String> naturalAbilities
+             - in Rasse
+            - hier in Zeile 47 als context.put(naturalAbiltiies...) hinzufügen
+             - in character-sheet.vm eintragen (for ... naturalAbilities)
+             */
+            
 //            case "Elf":race = new Elf();break;
             default:
                 System.out.println("Keine Rasse gewählt!");
