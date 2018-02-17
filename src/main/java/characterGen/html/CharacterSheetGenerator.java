@@ -76,13 +76,23 @@ public class CharacterSheetGenerator {
 */
         //Race human = new Race("Human", humanAttributes, new ArrayList<>());
         
-//        String raceName = args[0];
-//        switch (raceName){
-//            
-//        }
+        Race race = null;
+        String raceName = "Zwerg";
+        
+        if(args.length > 0) {
+            raceName = args[0];
+        }
+        
+        switch (raceName){
+            case "Zwerg": race=new Dwarf();break;
+//            case "Elf":race = new Elf();break;
+            default:
+                System.out.println("Keine Rasse gewählt!");
+                System.exit(-1);
+        }
         
         
-        PlayerCharacter max = new PlayerCharacter("Gimli", new Dwarf());
+        PlayerCharacter max = new PlayerCharacter("Gimli", race);
         max.print();
         csg.print(max);
         
