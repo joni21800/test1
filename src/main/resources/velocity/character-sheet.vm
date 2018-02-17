@@ -1,6 +1,6 @@
 ## Ein Kommentar beginnt mit ##
 ## vtlvariable: ein Hinweis für IntelliJ, welche Klasse die Variable npc hat, damit es beim Schreiben helfen kann.
-#* @vtlvariable name="npc" type="characterGen.Character" *#
+#* @vtlvariable name="npc" type="characterGen.PlayerCharacter" *#
 <html>
 ## Verwende den Unicode-Zeichensatz im Browser.
 <meta charset="utf-8"/>

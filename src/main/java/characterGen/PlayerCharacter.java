@@ -3,7 +3,7 @@ package characterGen;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Character {
+public class PlayerCharacter {
 
     String name;
     Race race;
@@ -14,10 +14,10 @@ public class Character {
     public Map<String, Integer> attributeMap = new HashMap<>();
 
 
-    public Character() {
+    public PlayerCharacter() {
     }
 
-    public Character(String name, Race race) {
+    public PlayerCharacter(String name, Race race) {
         this.name = name;
         this.race = race;
         for (Attribute attribute : race.getAttributes()) {
@@ -31,7 +31,7 @@ public class Character {
 
     public static void main(String[] args) {
 
-        Character tim = new Character();
+        PlayerCharacter tim = new PlayerCharacter();
         NameGenerator nameMaker = new NameGenerator();
 //        nameMaker.getNames().add("Legolas");
         tim.name = nameMaker.createName();

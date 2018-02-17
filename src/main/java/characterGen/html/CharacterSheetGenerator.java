@@ -1,7 +1,7 @@
 package characterGen.html;
 
 import characterGen.*;
-import characterGen.Character;
+import characterGen.PlayerCharacter;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
@@ -33,7 +33,7 @@ public class CharacterSheetGenerator {
         
     }
 
-    public void print(Character npc){
+    public void print(PlayerCharacter npc){
         /* lets render a template */
         StringWriter w = new StringWriter();
 
@@ -67,7 +67,7 @@ public class CharacterSheetGenerator {
 
         Race human = new Race("Human", humanAttributes);
 
-        Character max = new Character("Max", human);
+        PlayerCharacter max = new PlayerCharacter("Max", human);
         max.print();
         csg.print(max);
         

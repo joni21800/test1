@@ -1,9 +1,7 @@
 package characterGen;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CharacterGenerator {
     
@@ -53,7 +51,7 @@ public class CharacterGenerator {
 
         Race elv = new Race("Elv", elvenAttributes);
 
-        Character Legolas = new Character("Legolas", elv);
+        PlayerCharacter Legolas = new PlayerCharacter("Legolas", elv);
         Legolas.print();
 
         System.out.println("\n");
@@ -71,7 +69,7 @@ public class CharacterGenerator {
 
         Race dwarf = new Race("Dwarf", dwarvenAttributes);
 
-        Character Gimli = new Character("Gimli",dwarf );
+        PlayerCharacter Gimli = new PlayerCharacter("Gimli",dwarf );
         Gimli.print();
     }
 
