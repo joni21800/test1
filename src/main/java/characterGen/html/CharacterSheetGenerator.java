@@ -67,15 +67,15 @@ public class CharacterSheetGenerator {
     public static void main(String[] args) {
         CharacterSheetGenerator csg = new CharacterSheetGenerator();
         
-        List<Attribute> humanAttributes = new ArrayList<>();
+        /*List<Attribute> humanAttributes = new ArrayList<>();
 
         for(AttributeName attribute : AttributeName.values()){
             humanAttributes.add(new Attribute(attribute, new Würfel(3,6,0)));
         }
+*/
+        //Race human = new Race("Human", humanAttributes, new ArrayList<>());
 
-        Race human = new Race("Human", humanAttributes, new ArrayList<>());
-
-        PlayerCharacter max = new PlayerCharacter("Max", human);
+        PlayerCharacter max = new PlayerCharacter("Gimli", CharacterGenerator.getDwarf());
         max.print();
         csg.print(max);
         

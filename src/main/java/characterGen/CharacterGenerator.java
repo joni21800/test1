@@ -18,7 +18,7 @@ public class CharacterGenerator {
     // siehe auch: http://schabby.de/java-arrays/
     // static: von überall im Programm über CharacterGenerator.attributeNames zu erreichen.
     // final: dieses Feld kann nicht verändert werden.
-    public static final String[] attributeNames = {"Intelligenz", "Geisteskraft", "Charisma", "Stärke", "Gewandheit", "Belastbarkeit", "Schönheit", "Geschwindigkeit"};
+    public static final String[] attributeNames = {"Intelligenz", "Geisteskraft", "Charisma", "Stärke", "Gewandheit", "Belastbarkeit", "Schönheit", "Geschwindigkeit","Wahrnehmung"};
 
 
     public static Race getHuman() {
