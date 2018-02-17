@@ -1,4 +1,6 @@
-package characterGen;
+package characterGen.attributes;
+
+import characterGen.Würfel;
 
 public class Attribute {
     
@@ -8,14 +10,19 @@ public class Attribute {
      * Jeder, der auf Würfel dieser Klasse zugreifen will, um sie zu lesen, muß getDice() aufrufen.
      * 
      */
-    private String name;
     private Würfel dice;
+    private String name;
 
-    public Attribute(String name, Würfel dice) {
-        this.name = name;
+    public Attribute(AttributeName attributeName, Würfel dice) {
+        this.name= attributeName.getName();
         this.dice = dice;
     }
-
+    
+    public Attribute(SpecialAttributeName attributeName, Würfel dice){
+        this.name = attributeName.getName();
+        this.dice = dice;
+    }
+    
     public String getName() {
         return name;
     }
@@ -26,6 +33,6 @@ public class Attribute {
 
     @Override
     public String toString() {
-        return name + ": " +dice;
+        return getName() + ": " +dice;
     }
 }

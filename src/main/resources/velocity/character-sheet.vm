@@ -1,6 +1,6 @@
 ## Ein Kommentar beginnt mit ##
 ## vtlvariable: ein Hinweis für IntelliJ, welche Klasse die Variable npc hat, damit es beim Schreiben helfen kann.
-#* @vtlvariable name="npc" type="characterGen.Character" *#
+#* @vtlvariable name="npc" type="characterGen.PlayerCharacter" *#
 <html>
 ## Verwende den Unicode-Zeichensatz im Browser.
 <meta charset="utf-8"/>
@@ -11,7 +11,7 @@
 <h1>$npc.name</h1>
 ## Zugriff auf die Variablen von $npc über "." => $npc.race.name entspricht $npc.getRace().getName() 
 <p>Race: $npc.race.name</p>
-
+<h2>Attribute</h2>
 <table>
 ## Schleife über alle Schlüssel (keys) in $npc.attributeMap:)
     #foreach( $attribute in $attributeNames)
@@ -24,5 +24,20 @@
         </tr>
     #end
 </table>
+    #if ( !$npc.specialAttributes.isEmpty())
+    <h2>Rassenattribute</h2>
+    <table>
+    ## Schleife über alle Schlüssel (keys) in $npc.attributeMap:)
+        #foreach( $attribute in $specialAttributeNames)
+        ## Für jedes Attribut: füge eine table-row (Tabellen-Zeile) = <tr> hinzu
+            <tr>
+            ## in der Zeile: eine Tabellenzelle (table-data-cell = <td> )mit dem Namen des Attributs
+                <td>$attribute</td>
+            ## neben der Namens-Zelle eine weitere mit dem Wert des Attributs:
+                <td style="text-align:right;">$npc.specialAttributes.get($attribute)</td>
+            </tr>
+        #end
+    </table>
+    #end
 </body>
 </html>

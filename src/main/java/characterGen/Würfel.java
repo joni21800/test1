@@ -12,6 +12,12 @@ public class Würfel {
         this.bonus = bonus;
     }
     
+    public Würfel(int count, int sides){
+        this.count = count;
+        this.sides = sides;
+        this.bonus = 0;
+    }
+    
     public int roll(){
         return (count * (int) (Math.random() * sides + 1)) + bonus;
     }

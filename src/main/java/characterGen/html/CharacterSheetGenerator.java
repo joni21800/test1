@@ -1,7 +1,10 @@
 package characterGen.html;
 
 import characterGen.*;
-import characterGen.Character;
+import characterGen.PlayerCharacter;
+import characterGen.attributes.Attribute;
+import characterGen.attributes.AttributeName;
+import characterGen.attributes.SpecialAttributeName;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
@@ -10,8 +13,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 public class CharacterSheetGenerator {
 
@@ -33,13 +38,16 @@ public class CharacterSheetGenerator {
         
     }
 
-    public void print(Character npc){
+    public void print(PlayerCharacter npc){
         /* lets render a template */
         StringWriter w = new StringWriter();
 
         // Variablen bereitstellen:
         context.put("npc", npc);
         context.put("attributeNames",CharacterGenerator.attributeNames);
+        List<String> specialNames = Arrays.stream(SpecialAttributeName.values()).map(SpecialAttributeName::getName).collect(Collectors.toList());
+        context.put("specialAttributeNames", specialNames);
+        
 
         // verbinde die Character-Sheet Datei mit unserem Context (in dem der Charater gespeichert ist)
         Velocity.mergeTemplate("velocity/character-sheet.vm","UTF-8", context, w );
@@ -58,16 +66,16 @@ public class CharacterSheetGenerator {
     
     public static void main(String[] args) {
         CharacterSheetGenerator csg = new CharacterSheetGenerator();
-
+        
         List<Attribute> humanAttributes = new ArrayList<>();
 
-        for(String attribute : CharacterGenerator.attributeNames){
+        for(AttributeName attribute : AttributeName.values()){
             humanAttributes.add(new Attribute(attribute, new Würfel(3,6,0)));
         }
 
-        Race human = new Race("Human", humanAttributes);
+        Race human = new Race("Human", humanAttributes, new ArrayList<>());
 
-        Character max = new Character("Max", human);
+        PlayerCharacter max = new PlayerCharacter("Max", human);
         max.print();
         csg.print(max);
         
