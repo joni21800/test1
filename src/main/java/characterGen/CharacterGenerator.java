@@ -21,7 +21,7 @@ public class CharacterGenerator {
     public static final String[] attributeNames = {"Intelligenz", "Geisteskraft", "Charisma", "Stärke", "Gewandheit", "Belastbarkeit", "Schönheit", "Geschwindigkeit"};
 
 
-    public Race getHuman() {
+    public static Race getHuman() {
         List<Attribute> humanAttributes = new ArrayList<>();
 
        /*Schleife über die attributes: nehme immer das nächste Element des Arrays, stecke es in das lokale Feld attribute,
@@ -30,38 +30,28 @@ public class CharacterGenerator {
         for (AttributeName attribute : AttributeName.values()) {
             humanAttributes.add(new Attribute(attribute, new Würfel(3, 6, 0)));
         }
-        
+
         return new Race("Human", humanAttributes, new ArrayList<>());
     }
-    
-    
 
-    public static void main(String[] args) {
-
-
-        //Character max = new Character("Max", human);
-        //max.print();
-
-        // TODO: elf in eigene Methode
+    public static Race getElf() {
         List<Attribute> elvenAttributes = new ArrayList<>();
 
         elvenAttributes.add(new Attribute(AttributeName.INTELLIGENCE, new Würfel(3, 6, 1)));
         elvenAttributes.add(new Attribute(AttributeName.MENTAL_STRENGTH, new Würfel(2, 6, 0)));
-        elvenAttributes.add(new Attribute(AttributeName.CHARISMA, new Würfel(2,6)));
+        elvenAttributes.add(new Attribute(AttributeName.CHARISMA, new Würfel(2, 6)));
         elvenAttributes.add(new Attribute(AttributeName.STRENGTH, new Würfel(3, 6, 0)));
         elvenAttributes.add(new Attribute(AttributeName.DEXTERITY, new Würfel(4, 6, 0)));
         elvenAttributes.add(new Attribute(AttributeName.CONSTITUTION, new Würfel(3, 6, 0)));
         elvenAttributes.add(new Attribute(AttributeName.BEAUTY, new Würfel(5, 6, 0)));
         elvenAttributes.add(new Attribute(AttributeName.SPEED, new Würfel(3, 6, 0)));
-        // TODO: Warhnehmung hinzufügen
-        Race elv = new Race("Elv", elvenAttributes, new ArrayList<>());
+        elvenAttributes.add(new Attribute(AttributeName.PERCEPTION, new Würfel(4, 6)));
 
-        PlayerCharacter Legolas = new PlayerCharacter("Legolas", elv);
-        Legolas.print();
 
-        System.out.println("\n");
+        return new Race("Elv", elvenAttributes, new ArrayList<>());
+    }
 
-        // TODO: Zwerg in eigene Methode
+    public static Race getDwarf() {
         List<Attribute> dwarvenAttributes = new ArrayList<>();
 
         dwarvenAttributes.add(new Attribute(AttributeName.INTELLIGENCE, new Würfel(3, 6, 0)));
@@ -72,11 +62,26 @@ public class CharacterGenerator {
         dwarvenAttributes.add(new Attribute(AttributeName.CONSTITUTION, new Würfel(4, 6, 0)));
         dwarvenAttributes.add(new Attribute(AttributeName.BEAUTY, new Würfel(2, 6, 2)));
         dwarvenAttributes.add(new Attribute(AttributeName.SPEED, new Würfel(3, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.PERCEPTION, new Würfel(2, 6)));
         List<Attribute> dwarvenSpecials = new ArrayList<>();
-        dwarvenSpecials.add(new Attribute(SpecialAttributeName.DIG, new Würfel(1,6,0)));
-        Race dwarf = new Race("Dwarf", dwarvenAttributes, dwarvenSpecials);
+        dwarvenSpecials.add(new Attribute(SpecialAttributeName.DIG, new Würfel(1, 6, 0)));
+        return new Race("Dwarf", dwarvenAttributes, dwarvenSpecials);
+    }
 
-        PlayerCharacter Gimli = new PlayerCharacter("Gimli", dwarf);
+    public static void main(String[] args) {
+
+
+        //Character max = new Character("Max", human);
+        //max.print();
+
+
+        PlayerCharacter Legolas = new PlayerCharacter("Legolas", getElf());
+        Legolas.print();
+
+        System.out.println("\n");
+
+
+        PlayerCharacter Gimli = new PlayerCharacter("Gimli", getDwarf());
         Gimli.print();
     }
 
