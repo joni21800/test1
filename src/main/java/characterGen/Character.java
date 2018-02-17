@@ -11,7 +11,7 @@ public class Character {
     /*
      * Eine Map hat einen Schlüssel und einen Wert (key,value).
      */
-    public static Map<String, Integer> attributeMap = new HashMap<>();
+    public Map<String, Integer> attributeMap = new HashMap<>();
 
 
     public Character() {
@@ -48,5 +48,16 @@ public class Character {
             System.out.println(attribute + ": "+ attributeMap.get(attribute));
         }
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public Map<String, Integer> getAttributeMap() {
+        return attributeMap;
+    }
 }
