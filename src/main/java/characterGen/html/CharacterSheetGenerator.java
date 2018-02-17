@@ -44,7 +44,7 @@ public class CharacterSheetGenerator {
         // verbinde die Character-Sheet Datei mit unserem Context (in dem der Charater gespeichert ist)
         Velocity.mergeTemplate("velocity/character-sheet.vm","UTF-8", context, w );
         System.out.println( w );
-        File npcFile = new File(npc.getName()+".html");
+        File npcFile = new File("npcs", npc.getName()+".html");
         try {
             // um in eine Datei zu schreiben, brauchen wir einen FileOutputStream.
             FileOutputStream fos = new FileOutputStream(npcFile);
