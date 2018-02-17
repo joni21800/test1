@@ -1,5 +1,9 @@
 package characterGen;
 
+import characterGen.attributes.Attribute;
+import characterGen.attributes.AttributeName;
+import characterGen.attributes.SpecialAttributeName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,11 +27,11 @@ public class CharacterGenerator {
        /*Schleife über die attributes: nehme immer das nächste Element des Arrays, stecke es in das lokale Feld attribute,
           und mache etwas damit:*/
 
-        for (String attribute : attributeNames) {
+        for (AttributeName attribute : AttributeName.values()) {
             humanAttributes.add(new Attribute(attribute, new Würfel(3, 6, 0)));
         }
-
-        return new Race("Human", humanAttributes);
+        
+        return new Race("Human", humanAttributes, new ArrayList<>());
     }
     
     
@@ -41,16 +45,16 @@ public class CharacterGenerator {
         // TODO: elf in eigene Methode
         List<Attribute> elvenAttributes = new ArrayList<>();
 
-        elvenAttributes.add(new Attribute("Intelligenz", new Würfel(3, 6, 1)));
-        elvenAttributes.add(new Attribute("Geisteskraft", new Würfel(2, 6, 0)));
-        elvenAttributes.add(new Attribute("Charisma", new Würfel(2, 6, 0)));
-        elvenAttributes.add(new Attribute("Stärke", new Würfel(3, 6, 0)));
-        elvenAttributes.add(new Attribute("Gewandheit", new Würfel(4, 6, 0)));
-        elvenAttributes.add(new Attribute("Belastbarkeit", new Würfel(3, 6, 0)));
-        elvenAttributes.add(new Attribute("Schönheit", new Würfel(5, 6, 0)));
-        elvenAttributes.add(new Attribute("Geschwindigkeit", new Würfel(3, 6, 0)));
-
-        Race elv = new Race("Elv", elvenAttributes);
+        elvenAttributes.add(new Attribute(AttributeName.INTELLIGENCE, new Würfel(3, 6, 1)));
+        elvenAttributes.add(new Attribute(AttributeName.MENTAL_STRENGTH, new Würfel(2, 6, 0)));
+        elvenAttributes.add(new Attribute(AttributeName.CHARISMA, new Würfel(2,6)));
+        elvenAttributes.add(new Attribute(AttributeName.STRENGTH, new Würfel(3, 6, 0)));
+        elvenAttributes.add(new Attribute(AttributeName.DEXTERITY, new Würfel(4, 6, 0)));
+        elvenAttributes.add(new Attribute(AttributeName.CONSTITUTION, new Würfel(3, 6, 0)));
+        elvenAttributes.add(new Attribute(AttributeName.BEAUTY, new Würfel(5, 6, 0)));
+        elvenAttributes.add(new Attribute(AttributeName.SPEED, new Würfel(3, 6, 0)));
+        // TODO: Warhnehmung hinzufügen
+        Race elv = new Race("Elv", elvenAttributes, new ArrayList<>());
 
         PlayerCharacter Legolas = new PlayerCharacter("Legolas", elv);
         Legolas.print();
@@ -60,16 +64,17 @@ public class CharacterGenerator {
         // TODO: Zwerg in eigene Methode
         List<Attribute> dwarvenAttributes = new ArrayList<>();
 
-        dwarvenAttributes.add(new Attribute("Intelligenz", new Würfel(3, 6, 0)));
-        dwarvenAttributes.add(new Attribute("Geisteskraft", new Würfel(2, 6, 0)));
-        dwarvenAttributes.add(new Attribute("Charisma", new Würfel(2, 6, 0)));
-        dwarvenAttributes.add(new Attribute("Stärke", new Würfel(4, 6, 6)));
-        dwarvenAttributes.add(new Attribute("Gewandheit", new Würfel(3, 6, 0)));
-        dwarvenAttributes.add(new Attribute("Belastbarkeit", new Würfel(4, 6, 0)));
-        dwarvenAttributes.add(new Attribute("Schönheit", new Würfel(2, 6, 2)));
-        dwarvenAttributes.add(new Attribute("Geschwindigkeit", new Würfel(3, 6, 0)));
-
-        Race dwarf = new Race("Dwarf", dwarvenAttributes);
+        dwarvenAttributes.add(new Attribute(AttributeName.INTELLIGENCE, new Würfel(3, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.MENTAL_STRENGTH, new Würfel(2, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.CHARISMA, new Würfel(2, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.STRENGTH, new Würfel(4, 6, 6)));
+        dwarvenAttributes.add(new Attribute(AttributeName.DEXTERITY, new Würfel(3, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.CONSTITUTION, new Würfel(4, 6, 0)));
+        dwarvenAttributes.add(new Attribute(AttributeName.BEAUTY, new Würfel(2, 6, 2)));
+        dwarvenAttributes.add(new Attribute(AttributeName.SPEED, new Würfel(3, 6, 0)));
+        List<Attribute> dwarvenSpecials = new ArrayList<>();
+        dwarvenSpecials.add(new Attribute(SpecialAttributeName.DIG, new Würfel(1,6,0)));
+        Race dwarf = new Race("Dwarf", dwarvenAttributes, dwarvenSpecials);
 
         PlayerCharacter Gimli = new PlayerCharacter("Gimli", dwarf);
         Gimli.print();

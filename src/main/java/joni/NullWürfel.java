@@ -1,4 +1,4 @@
-package characterGen;
+package joni;
 
 public class NullWürfel {
 

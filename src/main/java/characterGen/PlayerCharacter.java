@@ -1,5 +1,9 @@
 package characterGen;
 
+import characterGen.attributes.Attribute;
+import characterGen.attributes.AttributeName;
+import characterGen.attributes.SpecialAttributeName;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +16,7 @@ public class PlayerCharacter {
      * Eine Map hat einen Schlüssel und einen Wert (key,value).
      */
     public Map<String, Integer> attributeMap = new HashMap<>();
-
+    public Map<String, Integer> specialAttributes = new HashMap<>();
 
     public PlayerCharacter() {
     }
@@ -26,6 +30,10 @@ public class PlayerCharacter {
              */
             attributeMap.put(attribute.getName(), attribute.getDice().roll());
         }
+        for (Attribute attribute : race.getExtraAttributes()) {
+            specialAttributes.put(attribute.getName(), attribute.getDice().roll());
+        }
+
     }
 
 
@@ -41,11 +49,16 @@ public class PlayerCharacter {
 
     public void print() {
         System.out.println("Name: " + name);
-        for(String attribute: CharacterGenerator.attributeNames){
+        for (AttributeName attribute : AttributeName.values()) {
             /*
              * Mit attributeMap.get(key) holt man den Wert heraus:
              */
-            System.out.println(attribute + ": "+ attributeMap.get(attribute));
+            System.out.println(attribute.getName() + ": " + attributeMap.get(attribute.getName()));
+        }
+        for (SpecialAttributeName specialName : SpecialAttributeName.values()) {
+            if(specialAttributes.containsKey(specialName.getName())) {
+                System.out.println(specialName.getName() + ": " + specialAttributes.get(specialName.getName()));
+            }
         }
     }
 
@@ -59,5 +72,9 @@ public class PlayerCharacter {
 
     public Map<String, Integer> getAttributeMap() {
         return attributeMap;
+    }
+
+    public Map<String, Integer> getSpecialAttributes() {
+        return specialAttributes;
     }
 }
