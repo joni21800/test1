@@ -11,6 +11,7 @@ public class PlayerCharacter {
 
     String name;
     Race race;
+    String alignment;
 
     /*
      * Eine Map hat einen Schlüssel und einen Wert (key,value).
@@ -33,6 +34,7 @@ public class PlayerCharacter {
         for (Attribute attribute : race.getExtraAttributes()) {
             specialAttributes.put(attribute.getName(), attribute.getDice().roll());
         }
+        this.alignment = race.getAlignment();
 
     }
 
@@ -76,5 +78,9 @@ public class PlayerCharacter {
 
     public Map<String, Integer> getSpecialAttributes() {
         return specialAttributes;
+    }
+
+    public String getAlignment() {
+        return alignment;
     }
 }

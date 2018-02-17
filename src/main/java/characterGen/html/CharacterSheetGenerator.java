@@ -5,6 +5,7 @@ import characterGen.PlayerCharacter;
 import characterGen.attributes.Attribute;
 import characterGen.attributes.AttributeName;
 import characterGen.attributes.SpecialAttributeName;
+import characterGen.races.Dwarf;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
@@ -74,8 +75,14 @@ public class CharacterSheetGenerator {
         }
 */
         //Race human = new Race("Human", humanAttributes, new ArrayList<>());
-
-        PlayerCharacter max = new PlayerCharacter("Gimli", CharacterGenerator.getDwarf());
+        
+//        String raceName = args[0];
+//        switch (raceName){
+//            
+//        }
+        
+        
+        PlayerCharacter max = new PlayerCharacter("Gimli", new Dwarf());
         max.print();
         csg.print(max);
         
