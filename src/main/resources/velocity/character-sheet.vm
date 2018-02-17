@@ -14,7 +14,7 @@
 
 <table>
 ## Schleife über alle Schlüssel (keys) in $npc.attributeMap:)
-    #foreach( $attribute in $npc.attributeMap.keySet())
+    #foreach( $attribute in $attributeNames)
     ## Für jedes Attribut: füge eine table-row (Tabellen-Zeile) = <tr> hinzu
         <tr>
         ## in der Zeile: eine Tabellenzelle (table-data-cell = <td> )mit dem Namen des Attributs

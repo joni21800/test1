@@ -39,6 +39,7 @@ public class CharacterSheetGenerator {
 
         // Variablen bereitstellen:
         context.put("npc", npc);
+        context.put("attributeNames",CharacterGenerator.attributeNames);
 
         // verbinde die Character-Sheet Datei mit unserem Context (in dem der Charater gespeichert ist)
         Velocity.mergeTemplate("velocity/character-sheet.vm","UTF-8", context, w );
