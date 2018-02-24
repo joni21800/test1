@@ -12,6 +12,7 @@ public class PlayerCharacter {
     String name;
     Race race;
     String alignment;
+    int hitpoints;
 
     /*
      * Eine Map hat einen Schlüssel und einen Wert (key,value).
@@ -35,7 +36,7 @@ public class PlayerCharacter {
             specialAttributes.put(attribute.getName(), attribute.getDice().roll());
         }
         this.alignment = race.getAlignment();
-
+        hitpoints = attributeMap.get(AttributeName.CONSTITUTION.getName()) + new Würfel(1, 6).roll();
     }
 
 
@@ -58,7 +59,7 @@ public class PlayerCharacter {
             System.out.println(attribute.getName() + ": " + attributeMap.get(attribute.getName()));
         }
         for (SpecialAttributeName specialName : SpecialAttributeName.values()) {
-            if(specialAttributes.containsKey(specialName.getName())) {
+            if (specialAttributes.containsKey(specialName.getName())) {
                 System.out.println(specialName.getName() + ": " + specialAttributes.get(specialName.getName()));
             }
         }
@@ -82,5 +83,9 @@ public class PlayerCharacter {
 
     public String getAlignment() {
         return alignment;
+    }
+
+    public int getHitpoints() {
+        return hitpoints;
     }
 }

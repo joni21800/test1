@@ -32,6 +32,6 @@ public class Dwarf extends Race {
         alignmentDistribution.put(Alignment.ANARCHIST, 90);
         alignmentDistribution.put(Alignment.DIABOLIC, 10);
     }
-
+//TODO: Alle Alignments hinzufügen
 
 }
