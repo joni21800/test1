@@ -3,6 +3,8 @@ package characterGen;
 import characterGen.attributes.Attribute;
 import characterGen.attributes.AttributeName;
 import characterGen.attributes.SpecialAttributeName;
+import characterGen.races.Dwarf;
+import characterGen.races.Elf;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,7 @@ public class CharacterGenerator {
         return new Race("Human", humanAttributes, new ArrayList<>());
     }
 
-    public static Race getElf() {
+   /* public static Race getElf() {
         List<Attribute> elvenAttributes = new ArrayList<>();
 
         elvenAttributes.add(new Attribute(AttributeName.INTELLIGENCE, new Würfel(3, 6, 1)));
@@ -67,7 +69,7 @@ public class CharacterGenerator {
         dwarvenSpecials.add(new Attribute(SpecialAttributeName.DIG, new Würfel(1, 6, 0)));
         return new Race("Dwarf", dwarvenAttributes, dwarvenSpecials);
     }
-
+*/
     public static void main(String[] args) {
 
 
@@ -75,14 +77,14 @@ public class CharacterGenerator {
         //max.print();
 
 
-        PlayerCharacter Legolas = new PlayerCharacter("Legolas", getElf());
-        Legolas.print();
+        PlayerCharacter legolas = new PlayerCharacter("Legolas", new Elf());
+        legolas.print();
 
         System.out.println("\n");
 
 
-        PlayerCharacter Gimli = new PlayerCharacter("Gimli", getDwarf());
-        Gimli.print();
+        PlayerCharacter gimli = new PlayerCharacter("Gimli", new Dwarf());
+        gimli.print();
     }
 
 }

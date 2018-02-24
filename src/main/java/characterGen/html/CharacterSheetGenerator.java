@@ -6,6 +6,7 @@ import characterGen.attributes.Attribute;
 import characterGen.attributes.AttributeName;
 import characterGen.attributes.SpecialAttributeName;
 import characterGen.races.Dwarf;
+import characterGen.races.Elf;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
@@ -66,38 +67,27 @@ public class CharacterSheetGenerator {
     }
     
     public static void main(String[] args) {
-        CharacterSheetGenerator csg = new CharacterSheetGenerator();
-        
-        Race race = null;
-        String raceName = "Zwerg";
-        
-        if(args.length > 0) {
-            raceName = args[0];
+        CharacterSheetGenerator characterSheetGenerator = new CharacterSheetGenerator();
+
+        int auswahl =new Würfel(1,2).roll();
+PlayerCharacter playerCharacter;
+        if (auswahl == 1) {
+            playerCharacter = new PlayerCharacter("Legolas", new Elf());
+
+
         }
-        
-        switch (raceName){
-            case "Zwerg": race=new Dwarf();break;
-            
-            // TODO: Elf-Rasse hinzufügen
-            // TODO: natural abilities erstellen:
-            /*
-             List<String> naturalAbilities
-             - in Rasse
-            - hier in Zeile 47 als context.put(naturalAbiltiies...) hinzufügen
-             - in character-sheet.vm eintragen (for ... naturalAbilities)
-             */
-            
-//            case "Elf":race = new Elf();break;
-            default:
-                System.out.println("Keine Rasse gewählt!");
-                System.exit(-1);
+        else {
+            playerCharacter = new PlayerCharacter("Gimli", new Dwarf());
+
+
         }
+        playerCharacter.print();
+
         
+
+        characterSheetGenerator.print(playerCharacter);
         
-        PlayerCharacter max = new PlayerCharacter("Gimli", race);
-        max.print();
-        csg.print(max);
-        
+
     }
     
 }
