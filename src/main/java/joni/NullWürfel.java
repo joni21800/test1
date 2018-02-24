@@ -15,7 +15,7 @@ public class NullWürfel {
     public int roll() { return (number * (int) (Math.random() * side ));     }
 
     public static void main(String[] args) {
-        NullWürfel neu = new NullWürfel(  1, 1);
+        NullWürfel neu = new NullWürfel(  1, 100);
         System.out.println(neu.roll());
     }
 
