@@ -44,7 +44,7 @@ public class Race {
             distributions.add(new Distribution(name,currentMax,currentMax+chance-1));
             currentMax += chance;
         }
-        int diceRoll = new Würfel(1,currentMax).roll();
+        int diceRoll = new Würfel(1,currentMax-1).roll();
         for(Distribution distribution : distributions){
             if(diceRoll >= distribution.min && diceRoll <= distribution.max){
                 return distribution.name;
