@@ -29,9 +29,14 @@ public class Dwarf extends Race {
 
         extraAttributes.add(new Attribute(SpecialAttributeName.DIG, new Würfel(1, 6, 0)));
 
-        alignmentDistribution.put(Alignment.ANARCHIST, 90);
-        alignmentDistribution.put(Alignment.DIABOLIC, 10);
+        alignmentDistribution.put(Alignment.PRINCIPLED,30);
+        alignmentDistribution.put(Alignment.SCRUPULOUS,20);
+        alignmentDistribution.put(Alignment.UNPRINCIPLED,10);
+        alignmentDistribution.put(Alignment.ANARCHIST,5);
+        alignmentDistribution.put(Alignment.MISCREANT,5);
+        alignmentDistribution.put(Alignment.ABERRANT,20);
+        alignmentDistribution.put(Alignment.DIABOLIC,10);
     }
-//TODO: Alle Alignments hinzufügen
+
 
 }

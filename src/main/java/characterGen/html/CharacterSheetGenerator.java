@@ -30,40 +30,42 @@ public class CharacterSheetGenerator {
         Properties p = new Properties();
         p.setProperty("resource.loader", "class");
         p.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
-        Velocity.init(p);
+        Velocity.init( p );
 
         /* lets make a Context and put data into it */
 
         context = new VelocityContext();
 
 
+        
     }
 
-    public void print(PlayerCharacter npc) {
+    public void print(PlayerCharacter npc){
         /* lets render a template */
         StringWriter w = new StringWriter();
 
         // Variablen bereitstellen:
         context.put("npc", npc);
-        context.put("attributeNames", CharacterGenerator.attributeNames);
+        context.put("attributeNames",CharacterGenerator.attributeNames);
         List<String> specialNames = Arrays.stream(SpecialAttributeName.values()).map(SpecialAttributeName::getName).collect(Collectors.toList());
         context.put("specialAttributeNames", specialNames);
-
+        
 
         // verbinde die Character-Sheet Datei mit unserem Context (in dem der Charater gespeichert ist)
-        Velocity.mergeTemplate("velocity/character-sheet.vm", "UTF-8", context, w);
-        System.out.println(w);
-        File npcFile = new File("npcs", npc.getName() + ".html");
+        Velocity.mergeTemplate("velocity/character-sheet.vm","UTF-8", context, w );
+        System.out.println( w );
+        File npcFile = new File("npcs", npc.getName()+".html");
         try {
             // um in eine Datei zu schreiben, brauchen wir einen FileOutputStream.
             FileOutputStream fos = new FileOutputStream(npcFile);
             fos.write(w.toString().getBytes());
             fos.close();
-        } catch (IOException e) {
-            System.out.println("Konnte die Datei für Character " + npc.getName() + " nicht schreiben.");
+        }
+        catch (IOException e){
+            System.out.println("Konnte die Datei für Character "+npc.getName()+" nicht schreiben.");
         }
     }
-
+    
     public static void main(String[] args) {
         CharacterSheetGenerator characterSheetGenerator = new CharacterSheetGenerator();
 
@@ -82,5 +84,5 @@ public class CharacterSheetGenerator {
 
 
     }
-
+    
 }

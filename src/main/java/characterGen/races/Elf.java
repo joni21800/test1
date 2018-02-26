@@ -29,9 +29,13 @@ public class Elf extends Race {
 
 
 
-        alignmentDistribution.put(Alignment.ANARCHIST, 90);
-        alignmentDistribution.put(Alignment.DIABOLIC, 10);
+        alignmentDistribution.put(Alignment.PRINCIPLED,5);
+        alignmentDistribution.put(Alignment.SCRUPULOUS,20);
+        alignmentDistribution.put(Alignment.UNPRINCIPLED,25);
+        alignmentDistribution.put(Alignment.ANARCHIST,5);
+        alignmentDistribution.put(Alignment.MISCREANT,20);
+        alignmentDistribution.put(Alignment.ABERRANT,15);
+        alignmentDistribution.put(Alignment.DIABOLIC,10);
     }
-
 
 }
