@@ -1,7 +1,7 @@
 package characterGen;
 
 public enum Alignment {
-    
+
     PRINCIPLED("Prinzipientreu"),
     SCRUPULOUS("Gewissenhaft"),
     ANARCHIST("Anarchist"),
@@ -9,7 +9,7 @@ public enum Alignment {
     MISCREANT("Bösartig"),
     ABERRANT("Verdreht"),
     DIABOLIC("Teuflisch");
-    
+
     private String name;
 
     Alignment(String name) {
