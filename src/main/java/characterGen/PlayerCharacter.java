@@ -87,6 +87,10 @@ public class PlayerCharacter {
         return alignment;
     }
 
+    public String getPsionics() {
+        return psionics;
+    }
+
     public int getHitpoints() {
         return hitpoints;
     }

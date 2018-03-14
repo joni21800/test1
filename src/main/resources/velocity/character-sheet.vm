@@ -12,6 +12,7 @@
 ## Zugriff auf die Variablen von $npc über "." => $npc.race.name entspricht $npc.getRace().getName() 
 <p>Race: $npc.race.name</p>
 <p>Alignment: $npc.alignment</p>
+<p>Psionics: $npc.psionics</p>
 <p>Hitpoints: $npc.hitpoints</p>
 <h2>Attribute</h2>
 <table>
