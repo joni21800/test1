@@ -13,6 +13,7 @@ public class Race {
     protected List<Attribute> attributes = new ArrayList<>();
     protected List<Attribute> extraAttributes = new ArrayList<>();
     protected Map<Alignment,Integer> alignmentDistribution = new HashMap<>();
+    protected Map<Psionics, Integer> psionicDistribution =new HashMap<>();
 
     public Race() {
     }
@@ -37,15 +38,15 @@ public class Race {
 
     public String getAlignment(){
         int currentMax = 1;
-        List<Distribution> distributions = new ArrayList<>();
+        List<Distribution> distributional = new ArrayList<>();
         for(Map.Entry<Alignment,Integer> alignmentChance : alignmentDistribution.entrySet()){
             String name = alignmentChance.getKey().getName();
             int chance = alignmentChance.getValue();
-            distributions.add(new Distribution(name,currentMax,currentMax+chance-1));
+            distributional.add(new Distribution(name,currentMax,currentMax+chance-1));
             currentMax += chance;
         }
         int diceRoll = new Würfel(1,currentMax-1).roll();
-        for(Distribution distribution : distributions){
+        for(Distribution distribution : distributional){
             if(diceRoll >= distribution.min && diceRoll <= distribution.max){
                 return distribution.name;
             }
@@ -64,5 +65,22 @@ public class Race {
             this.max = max;
         }
     }
-    
+    public String getPsionics() {
+        int currentMax = 1;
+        List<Distribution> distributionps=new ArrayList<>();
+        for(Map.Entry<Psionics,Integer> psionicChance : psionicDistribution.entrySet()){
+            String name = psionicChance.getKey().getName();
+            int chance = psionicChance.getValue();
+            distributionps.add(new Distribution(name,currentMax,currentMax+chance-1));
+            currentMax += chance;
+        }
+        int diceRoll = new Würfel(1,currentMax-1).roll();
+        for(Distribution distribution : distributionps){
+            if(diceRoll >= distribution.min && diceRoll <= distribution.max){
+                return distribution.name;
+            }
+        }
+        throw new IllegalStateException(" Psionic Fehler im Algorythmus %"+diceRoll);
+
+    }
 }

@@ -1,6 +1,7 @@
 package characterGen.races;
 
 import characterGen.Alignment;
+import characterGen.Psionics;
 import characterGen.Race;
 import characterGen.Würfel;
 import characterGen.attributes.Attribute;
@@ -36,6 +37,10 @@ public class Dwarf extends Race {
         alignmentDistribution.put(Alignment.MISCREANT,5);
         alignmentDistribution.put(Alignment.ABERRANT,20);
         alignmentDistribution.put(Alignment.DIABOLIC,10);
+
+        psionicDistribution.put(Psionics.NONE,75);
+        psionicDistribution.put(Psionics.MINOR,15);
+        psionicDistribution.put(Psionics.MAYOR,10);
     }
 
 

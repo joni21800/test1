@@ -12,6 +12,7 @@ public class PlayerCharacter {
     String name;
     Race race;
     String alignment;
+    String psionics;
     int hitpoints;
 
     /*
@@ -36,6 +37,7 @@ public class PlayerCharacter {
             specialAttributes.put(attribute.getName(), attribute.getDice().roll());
         }
         this.alignment = race.getAlignment();
+        this.psionics = race.getPsionics();
         hitpoints = attributeMap.get(AttributeName.CONSTITUTION.getName()) + new Würfel(1, 6).roll();
     }
 
