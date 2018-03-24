@@ -6,7 +6,6 @@ import characterGen.Race;
 import characterGen.Würfel;
 import characterGen.attributes.Attribute;
 import characterGen.attributes.AttributeName;
-import characterGen.attributes.SpecialAttributeName;
 
 import java.util.List;
 

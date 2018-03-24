@@ -2,7 +2,6 @@ package characterGen;
 
 import characterGen.attributes.Attribute;
 import characterGen.attributes.AttributeName;
-import characterGen.attributes.SpecialAttributeName;
 import characterGen.races.Dwarf;
 import characterGen.races.Elf;
 
